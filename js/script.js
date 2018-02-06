@@ -16,32 +16,31 @@
 //****************** SERIOUSLY TEST USING console.log()!!! ******************
 
 // Songs
-var mySong = {
-	"title":"24K Magic",
-	"artist":"Bruno Mars",
-	"mp3url":"https://open.spotify.com/track/6b8Be6ljOzmkOmFslEb23P",
-	"imageurl":"https://images-na.ssl-images-amazon.com/images/I/71Gr9aCHQfL._SY355_.jpg",
-	"songlength": 500,
+var mybook = {
+	"title":"Ready Player One",
+	"author":"Earnest Cline",
+	"url":"#",
+	"imageurl":"https://images-na.ssl-images-amazon.com/images/I/61d6DhRCBSL._SX322_BO1,204,203,200_.jpg",
 }
 
-var myPlayList = [
+var myToReadList = [
 	{
-		"title":"24K Magic",
-		"artist":"Bruno Mars",
-		"mp3-url":"https://open.spotify.com/track/6b8Be6ljOzmkOmFslEb23P",
-		"image-url":"https://images-na.ssl-images-amazon.com/images/I/71Gr9aCHQfL._SY355_.jpg",
+		"title":"The Amazing Adventures of Kavalier and Clay",
+		"author":"Michael Chabon",
+		"url":"https://www.goodreads.com/book/show/3985.The_Amazing_Adventures_of_Kavalier_Clay",
+		"imageurl":"https://images.gr-assets.com/books/1503806495l/3985.jpg",
 	},
 	{
-		"title":"Sir Duke",
-		"artist":"Stevie Wonder",
-		"mp3-url":"https://open.spotify.com/track/2udw7RDkldLFIPG9WYdVtT",
-		"image-url":"https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/Songs_in_the_key_of_life.jpg/220px-Songs_in_the_key_of_life.jpg",
+		"title":"#",
+		"author":"#",
+		"url":"#",
+		"imageurl":"#",
 	},
 	{
-		"title":"Sorry",
-		"artist":"Justin Bieber",
-		"mp3-url":"https://open.spotify.com/track/09CtPGIpYB4BrO8qb1RGsF",
-		"image-url":"http://assets-s3.usmagazine.com/uploads/assets/articles/93827-justin-biebers-sorry-choreographer-spills-video-style-secrets-parris-goebel/1445638548_justin-bieber-sorry-dancers-zoom.jpg",
+		"title":"#",
+		"author":"#",
+		"url":"#",
+		"imageurl":"#",
 	}
 
 ]
@@ -50,18 +49,24 @@ var myPlayList = [
 
 // DOCUMENT READY FUNCTION
 $( document ).ready(function() {
-  console.log(mySong.title);
+  console.log(mybook.title);
   displayList();
 
 
 });
 
 function displayList(){
- $(".songs").append("<p>"+ mySong.title +"</p>");
- $(".songs").append("<p>"+ mySong.artist +"</p>");
- $(".songs").append("<p><a href='"+ mySong.mp3url +"'></p>");
- $(".songs").append("<img src='"+ mySong.imageurl +"'>");
- $("#songs").append("<p></p>");
+ $(".songs").append("<p>"+ mybook.title +"</p>");
+ $(".songs").append("<p> By : "+ mybook.author +"</p>");
+ $(".songs").append("<img height='300px' width='200px' src='"+ mybook.imageurl +"'>");
+ $(".songs").append("<p><a href='"+ mybook.url +"'>Start Reading</p>");
+ for(var i= 0; i < myToReadList.length ; i++){
+	$(".songs").append("<p>" + myToReadList[i].title + "</p>");
+	$(".songs").append("<p> By : " + myToReadList[i].author + "</p>");
+	$(".songs").append("<img height='300px' width='200px' src='" + myToReadList[i].imageurl + "'>");
+	$(".songs").append("<p><a href='" + myToReadList[i].url + "'>Start Reading</p>");
+	console.log(myToReadList[i].url);
+ }
 }
 
 function clearList(){

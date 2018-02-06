@@ -2,3 +2,12 @@ body{
     background-color: black;
     color: white;
 }
+
+.black{
+    color: black;
+    text-align: center;
+}
+
+input{
+    width:100%;
+}
