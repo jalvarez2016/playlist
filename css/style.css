@@ -5,9 +5,11 @@ body{
 
 .black{
     color: black;
-    text-align: center;
+    position: relative;
+    left: 20px;
 }
 
-input{
-    width:100%;
+.books{
+    border-color: white;
+    border-radius: 5px;
 }
