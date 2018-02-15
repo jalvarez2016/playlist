@@ -56,31 +56,47 @@ var myToReadList = [
 $( document ).ready(function() {
   console.log(mybook.title);
   displayList();
-   $("#save").click(function(){
+  $("#save").click(function(){
  	addBook();
+ });
+ $("#empty").click(function(){
+ 	clearList();
  });
 
 });
 
 function displayList(){
- $(".books").append("<p>"+ mybook.title +"</p>");
- $(".books").append("<p> By : "+ mybook.author +"</p>");
- $(".books").append("<img height='300px' width='200px' src='"+ mybook.imageurl +"'>");
- $(".books").append("<p><a href='"+ mybook.url +"'>Start Reading</p>");
- $(".books").append("<hr style='border-color: #ffffff'>");
+ $(".books").append("<div id='delete'>" + "<button class='btn btn-primary' onclick='myFunction()'>Delete</button>" + "<p>"+ mybook.title +"</p>" + "<p> By : "+ mybook.author +"</p>" + "<img height='300px' width='200px' src='"+ mybook.imageurl +"'>" + "<p><a href='"+ mybook.url +"'>Start Reading</p>" + "<hr style='border-color: #ffffff'>" + "</div>");
  for(var i= 0; i < myToReadList.length ; i++){
-	$(".books").append("<p>" + myToReadList[i].title + "</p>");
-	$(".books").append("<p> By : " + myToReadList[i].author + "</p>");
-	$(".books").append("<img height='300px' width='200px' src='" + myToReadList[i].imageurl + "'>");
-	$(".books").append("<p><a href='" + myToReadList[i].url + "'>Start Reading</p>");
-	$(".books").append("<hr style='border-color: #ffffff' border-width='10px'>");
+	$(".books").append("<div id='"+ i +"'>" + "<button class='btn btn-primary' onclick='singleDelete(" + i + ")'>Delete</button>" + "<p>" + myToReadList[i].title + "</p>" + "<p> By : " + myToReadList[i].author + "</p>" + "<img height='300px' width='200px' src='" + myToReadList[i].imageurl + "'>" + "<p><a href='" + myToReadList[i].url + "'>Start Reading</p>" + "<hr style='border-color: #ffffff' border-width='10px'>" + "</div>");
 	console.log(myToReadList[i].url);
  }
 }
 
+function singleDelete(i){
+  
+  var x = document.getElementById(i);
+  if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
 function clearList(){
   
+  $(".books").empty();
   
+}
+
+function myFunction(){
+  
+  var x = document.getElementById("delete");
+  if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
   
 }
 
@@ -90,9 +106,5 @@ function addBook(){
 	var url = $("#url").val();
 	var img = $("#image").val();
 	
-	$(".books").append("<p>" + title + "</p>");
-	$(".books").append("<p> By : " + author + "</p>");
-	$(".books").append("<img height='300px' width='200px' src='" + url + "'>");
-	$(".books").append("<p><a href='" + img + "'>Start Reading</p>");
-	$(".books").append("<hr style=' border-color: #ffffff' borer-width='10px'>");
+	$(".books").append("<div id='delete'>" + "<button class='btn btn-primary' onclick='myFunction()'>Delete</button>" + "<p>" + title + "</p>" + "<p> By : " + author + "</p>" + "<img height='300px' width='200px' src='" + url + "'>" + "<p><a href='" + img + "'>Start Reading</p>" + "<hr style=' border-color: #ffffff' borer-width='10px'>" + "</div>");
 }
