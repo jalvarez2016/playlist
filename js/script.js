@@ -71,24 +71,17 @@ function displayList(){
 	console.log(myToReadList[i].url);
  }
 }
-var counter = 0;
+
 function singleDelete(i){
   var x = document.getElementById(i);
   if (x.style.display === "none") {
         x.style.display = "block";
     } else {
         x.style.display = "none";
+        myToReadList.splice(i,1);
         console.log(myToReadList[i]);
         console.log(myToReadList);
     }
-  if (i === counter) {
-     myToReadList.splice(i,1);
-     console.log(myToReadList[i]);
-     console.log(myToReadList);
-  } else {
-      
-  }
-  counter++;
 }
 
 function clearList(){
